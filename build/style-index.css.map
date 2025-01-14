@@ -1,0 +1,1 @@
+{"version":3,"file":"./style-index.css","mappings":";;;AAGA;EACE;AAFF;;AAKA;EACE;EACA;AAFF,C","sources":["webpack://custom-theme/./assets/scss/style.scss"],"sourcesContent":["// @import \"modules/reset\";\n// @import \"modules/header\";\n\nbody {\n  background-color: #f9f9f9;\n}\n\n.container {\n  padding-left: 1rem;\n  padding-right: 1rem;\n}\n\n"],"names":[],"sourceRoot":""}

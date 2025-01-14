@@ -1,0 +1,14 @@
+header {
+  background-color: #FFFFFF;
+  
+  .nav-layout {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .main-navigation {
+      display: flex;
+      gap: 0.5rem;
+    }
+  }
+}
