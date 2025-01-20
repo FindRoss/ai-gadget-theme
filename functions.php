@@ -6,6 +6,9 @@ function enqueue_theme_styles() {
 add_action( 'wp_enqueue_scripts', 'enqueue_theme_styles');
 
 
+add_theme_support('post-thumbnails');
+
+// TESTING PLUGINS 
 function register_bullet_points_block() {
     register_block_type('your-theme/bullet-points', array(
         'render_callback' => 'render_bullet_points_block',
@@ -39,3 +42,5 @@ function render_bullet_points_block($attributes) {
 
     return $output;
 }
+
+
