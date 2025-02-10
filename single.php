@@ -1,14 +1,68 @@
 <?php get_header(); ?>
 
-  <div class="container">
+<!-- 
+What we need: 
+- Heading
+- Excerpt
+- Image
+- Publish Date
+- Category
+- Content
+-->
 
-    <h1>Test Post Number One</h1>
-    <img src="https://best-ai-gadgets.local/wp-content/uploads/2025/01/bigstock-213291592.jpg" />
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque interdum massa lectus, volutpat accumsan nibh pretium nec. Maecenas ut justo posuere, blandit libero quis, bibendum ipsum. Nullam at dolor bibendum, congue ante malesuada, aliquam nisi. Morbi id ipsum ac eros volutpat lacinia ut at neque. Ut vitae purus nisi.</p>
-    <p>Suspendisse interdum tristique augue vitae faucibus. Nunc imperdiet, quam id iaculis malesuada, augue enim ornare urna, sed tincidunt ligula odio sed lectus. Fusce lectus mi, imperdiet quis orci sit amet, volutpat ultrices eros. Maecenas commodo metus eget ipsum dictum ultricies. Quisque nulla est, tincidunt venenatis vehicula sit amet, finibus et turpis.</p>
-    <p>Suspendisse sed lacus enim. Nunc mi sapien, mattis sit amet maximus ac, sagittis in nisl. Praesent imperdiet rhoncus accumsan. Ut molestie sapien in pharetra aliquam. Phasellus rutrum dictum semper. Fusce accumsan vehicula justo eleifend tristique.</p>
-    
 
-  </div>
+
+<div class="container">
+
+  <article>
+
+    <!-- Heading -->
+    <section class="heading">
+      <div class="heading__content">
+        <h1><?php the_title(); ?></h1>
+        <div class="date">Updated Jan 25</div>
+      </div>
+      <div class="heading__image">
+        <?php if (has_post_thumbnail()): ?>
+          <img src="<?php echo get_the_post_thumbnail_url(null, 'large'); ?>" />
+        <?php endif; ?>
+      </div>
+    </section>
+
+    <!-- Section -->
+    <section class="content">  
+      <?php the_content(); ?>
+    </section>
+
+  </article>
+
+
+  <?php 
+    $args = array(
+      'post_type'      => 'post', 
+      'posts_per_page' => 3,
+      
+    );
+
+    $query = new WP_Query($args);
+
+    if ($query->have_posts()) :
+
+      echo '<div class="card-grid">';
+      
+
+         while ($query->have_posts()) : $query->the_post(); 
+
+          require locate_template('card.php');
+  
+      endwhile; ?>
+      </div>
+    <?php endif; ?>
+
+
+</div>
+
+
 
 <?php get_footer(); ?>
+
