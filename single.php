@@ -10,7 +10,7 @@ What we need:
 - Content
 -->
 
-
+<?php  require locate_template('breadcrumbs.php'); ?>
 
 <div class="container">
 
@@ -48,16 +48,16 @@ What we need:
 
     if ($query->have_posts()) :
 
-      echo '<div class="card-grid">';
+      echo '<div class="cards card-grid">';
       
 
          while ($query->have_posts()) : $query->the_post(); 
 
           require locate_template('card.php');
   
-      endwhile; ?>
-      </div>
-    <?php endif; ?>
+      endwhile;
+      echo '</div>';
+    endif; ?>
 
 
 </div>
